@@ -5,15 +5,10 @@ from flask import render_template  # import render_template from "public" flask 
 
 # import "packages" from "this" project
 from __init__ import app,db  # Definitions initialization
-from model.jokes import initJokes
-from model.users import initUsers
+
 from model.players import initPlayers
 
-
 # setup APIs
-from api.covid import covid_api # Blueprint import api definition
-from api.joke import joke_api # Blueprint import api definition
-from api.user import user_api # Blueprint import api definition
 from api.player import player_api
 
 
@@ -25,9 +20,6 @@ from projects.projects import app_projects # Blueprint directory import projects
 db.init_app(app)
 
 # register URIs
-app.register_blueprint(joke_api) # register api routes
-app.register_blueprint(covid_api) # register api routes
-app.register_blueprint(user_api) # register api routes
 app.register_blueprint(player_api)
 app.register_blueprint(app_projects) # register app pages
 
@@ -46,8 +38,7 @@ def table():
 
 @app.before_first_request
 def activate_job():  # activate these items 
-    initJokes()
-    initUsers()
+
     initPlayers()
 
 # this runs the application on the development server
