@@ -1,5 +1,4 @@
 import threading
-
 # import "packages" from flask
 from flask import render_template  # import render_template from "public" flask libraries
 
@@ -40,6 +39,10 @@ def table():
 def activate_job():  # activate these items 
 
     initPlayers()
+
+@app.route('/create', methods=['POST'])
+def create_user():
+    user = request.json.get('user')
 
 # this runs the application on the development server
 if __name__ == "__main__":
