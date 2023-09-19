@@ -1,2 +1,2 @@
 # About
-The official backend for Cosmic Carnage!
+Hello, I am Ethan.
